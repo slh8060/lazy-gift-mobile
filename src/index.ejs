@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <meta name="viewport" content="width=device-width,minimum-scale=0.5,maximum-scale=0.5,user-scalable=no">
+  <title>Dva Demo</title>
+  <link rel="stylesheet" href="/index.css" />
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    (function (doc,win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) {
+            return;
+          } else {
+            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+          }
+        };
+
+      if (!doc.addEventListener)
+        return;
+      win.addEventListener(resizeEvt,recalc,false);
+      doc.addEventListener('DOMContentLoaded',recalc,false);
+    })(document,window);
+
+  </script>
+</body>
+</html>
