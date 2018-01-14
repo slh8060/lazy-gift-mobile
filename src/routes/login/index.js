@@ -1,6 +1,8 @@
 import React from 'react';
-import { connect } from 'dva';
-import { Button } from 'antd-mobile';
+import {connect} from 'dva';
+import {Button} from 'antd-mobile';
+
+
 import styles from './index.less';
 
 const Login = () => {
@@ -17,13 +19,12 @@ const Login = () => {
 
       <div className={styles.bottom}>
         <div className={styles.tip}>第三方登录</div>
-        <div>
-          <Button icon={<img className={styles.btnimg} src="/assets/weixin.png" />} />
-        </div>
-        <div>
-          <Button icon={<img className={styles.btnimg} src="/assets/qq.png" />} />
-        </div>
-
+        <button className={styles.loginBtn}>
+          <img className={styles.btnimg} src="/assets/weixin.png" alt="" />
+        </button>
+        <button>
+          <img className={styles.btnimg} src="/assets/qq.png" alt="" />
+        </button>
       </div>
 
     </div>

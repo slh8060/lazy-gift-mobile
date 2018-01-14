@@ -1,15 +1,34 @@
 {
   "entry": "src/index.js",
+  "theme": {
+       "@primary-color": "red",
+       "@link-color": "#1DA57A",
+       "@border-radius-base": "2px",
+       "@font-size-base": "24px",
+       "@line-height-base": "1.2"
+     },
   "env": {
     "development": {
       "extraBabelPlugins": [
         "dva-hmr",
-        "transform-runtime"
+        "transform-runtime",
+        [
+          "import", {
+              "libraryName": "antd-mobile",
+              "style": true  // `style: true` 会加载 less 文件
+          }
+        ]
       ]
     },
     "production": {
       "extraBabelPlugins": [
-        "transform-runtime"
+        "transform-runtime",
+        [
+            "import", {
+                "libraryName": "antd-mobile",
+                "style": true  // `style: true` 会加载 less 文件
+            }
+        ]
       ]
     }
   }
