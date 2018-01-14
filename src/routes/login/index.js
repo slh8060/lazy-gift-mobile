@@ -1,7 +1,5 @@
 import React from 'react';
 import {connect} from 'dva';
-import {Button} from 'antd-mobile';
-
 
 import styles from './index.less';
 
