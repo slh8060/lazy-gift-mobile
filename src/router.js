@@ -19,7 +19,7 @@ function RouterConfig({history, app}) {
       component: () => import('./routes/RegistPage'),
     },
     {
-      path: '/footer',
+      path: '/main',
       component: () => import('./routes/main'),
     },
   ];
@@ -27,7 +27,7 @@ function RouterConfig({history, app}) {
     <ConnectedRouter history={history}>
       <App>
         <Switch>
-          <Route exact path="/" render={() => (<Redirect to="/login"/>)}/>
+          <Route exact path="/" render={() => (<Redirect to="/main"/>)}/>
           {
             routes.map(({ path, ...dynamics }, key) => (
               <Route
