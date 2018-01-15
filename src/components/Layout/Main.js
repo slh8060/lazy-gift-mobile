@@ -2,6 +2,7 @@ import React from 'react';
 import {TabBar} from 'antd-mobile';
 import style from './Main.less';
 import Recommand from '../Recommand/Recommand';
+import My from '../My/My';
 
 class Footer extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <div className={style.ftCon}>
+      <div className={style.ftCon} style={this.state.selectedTab === 'myTab' ? { backgroundColor: '#f5f5f5' } : { backgroundColor: '#fff' }}>
         <TabBar
           unselectedTintColor="#090909"
           tintColor="#090909"
@@ -53,7 +54,7 @@ class Footer extends React.Component {
               });
             }}
           >
-            { this.renderContent('mydgdg') }
+            { this.renderContent(<My />) }
           </TabBar.Item>
         </TabBar>
       </div>
