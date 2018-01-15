@@ -11,17 +11,22 @@ function RouterConfig({history, app}) {
       component: () => import('./routes/IndexPage'),
     },
     {
+      path: '/main',
+      component: () => import('./routes/main'),
+    },
+    {
       path: '/login',
       component: () => import('./routes/login'),
     },
     {
-      path: '/regist',
-      component: () => import('./routes/RegistPage'),
+      path: '/star',
+      component: () => import('./routes/star'),
     },
     {
-      path: '/main',
-      component: () => import('./routes/main'),
+      path: '/message',
+      component: () => import('./routes/message'),
     },
+
   ];
   return (
     <ConnectedRouter history={history}>

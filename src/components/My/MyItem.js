@@ -19,7 +19,9 @@ const MyItem = () => ({
 
           <img className={style.dtlGo} src="/assets/rgarrow.png" alt="" />
         </div>
-        <div className={style.myItem}>
+
+
+        <div className={style.myItem} >
           <div className={style.itemLf}>
             <img className={style.itemImg} src="/assets/heart.png" alt="" />
             <p>我的收藏</p>
@@ -27,11 +29,11 @@ const MyItem = () => ({
           </div>
           <img className={style.dtlGo} src="/assets/rgarrow.png" alt="" />
         </div>
+
         <div className={style.myItem}>
           <div className={style.itemLf}>
             <img className={style.itemImg} src="/assets/message.png" alt="" />
             <p>我的消息</p>
-
           </div>
           <img className={style.dtlGo} src="/assets/rgarrow.png" alt="" />
         </div>

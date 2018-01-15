@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../Layout/Navbar';
-import ListItem from './ListItem';
+import RecommandList from '../Layout/RecommandList';
 
 class Recommand extends React.Component {
 
@@ -8,7 +8,7 @@ class Recommand extends React.Component {
     return (
       <div>
         <Navbar title="推荐" />
-        <ListItem />
+        <RecommandList />
       </div>
     );
   }

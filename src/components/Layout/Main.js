@@ -11,7 +11,6 @@ class Footer extends React.Component {
       selectedTab: 'recommandTab',
     };
   }
-
   renderContent(pageText) {
     return (
       <div>
@@ -19,7 +18,6 @@ class Footer extends React.Component {
       </div>
     );
   }
-
   render() {
     return (
       <div className={style.ftCon} style={this.state.selectedTab === 'myTab' ? { backgroundColor: '#f5f5f5' } : { backgroundColor: '#fff' }}>
@@ -45,7 +43,7 @@ class Footer extends React.Component {
           <TabBar.Item
             title="我的"
             key="my"
-            icon={<div className={style.tabIcon} style={{ background: 'url("/assets/my.png") center center /21px 21px no-repeat' }} />}
+            icon={<div className={style.tabIcon} style={{ background: 'url("/assets/my.png") center center / 21px 21px no-repeat' }} />}
             selectedIcon={<div className={style.tabIcon} style={{ background: 'url("/assets/selected-my.png") center center /  21px 21px no-repeat' }} />}
             selected={this.state.selectedTab === 'myTab'}
             onPress={() => {
