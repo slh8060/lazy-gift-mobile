@@ -1,8 +1,10 @@
 import React from 'react';
 import {Route, Switch, Redirect, routerRedux} from 'dva/router';
 import dynamic from 'dva/dynamic';
-import App from './routes/app';
+import App from 'routes/app';
+
 const {ConnectedRouter} = routerRedux;
+
 
 function RouterConfig({history, app}) {
   const routes = [

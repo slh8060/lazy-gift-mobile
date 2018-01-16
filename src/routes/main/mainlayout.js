@@ -1,10 +1,10 @@
 import React from 'react';
 import {TabBar} from 'antd-mobile';
-import style from './Main.less';
-import Recommand from '../Recommand/Recommand';
-import My from '../My/My';
+import style from './index.less';
+import Recommand from 'components/Recommand/Recommand';
+import My from 'components/My/My';
 
-class Footer extends React.Component {
+class MainLayout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,5 +60,5 @@ class Footer extends React.Component {
   }
 }
 
-export default Footer;
+export default MainLayout;
 
