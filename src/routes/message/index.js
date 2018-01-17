@@ -6,7 +6,7 @@ import MyMessage from 'components/Message/Message';
 const Message = () => {
   return (
     <div>
-      <Navbar title="我的消息" />
+      <Navbar title="我的消息" back="true"/>
       <MyMessage />
     </div>
   );

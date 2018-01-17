@@ -8,7 +8,7 @@ import style from './index.less';
 const MyInfo = () => {
   return (
     <div className={style.myInfoWrap}>
-      <Navbar title="个人信息" />
+      <Navbar title="个人信息" back="true" />
       <MyInfoItem />
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import style from './List.less';
 
 const ListItem = () => ({
@@ -18,9 +19,12 @@ const ListItem = () => ({
             {this.props.label}
           </p>
         </div>
-        <div className={style.lsmdl}>
-          1.烧烤工具；2.烧烤主食；3.烧烤调味品；4.代步工具；5.娱乐节目
-        </div>
+        <Link to="/detail">
+          <div className={style.lsmdl}>
+            1.烧烤工具；2.烧烤主食；3.烧烤调味品；4.代步工具；5.娱乐节目
+          </div>
+        </Link>
+
         <div className={style.lsbtm}>
           <span className={style.time}>2小时前</span>
           <div className={style.lsRg}>

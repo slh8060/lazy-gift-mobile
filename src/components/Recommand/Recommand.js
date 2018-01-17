@@ -7,7 +7,7 @@ class Recommand extends React.Component {
   render() {
     return (
       <div>
-        <Navbar title="推荐" />
+        <Navbar title="推荐" back="false" />
         <RecommandList />
       </div>
     );

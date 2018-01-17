@@ -33,7 +33,7 @@ const MyItem = ({dispatch}) => {
         <div className={style.myItem} href="/star">
           <div className={style.itemLf}>
             <img className={style.itemImg} src="/assets/heart.png" alt=""/>
-            <a className={style.itemGo} href="/star">我的收藏</a>
+            <p className={style.itemGo} href="/star">我的收藏</p>
 
           </div>
           <img className={style.dtlGo} src="/assets/rgarrow.png" alt=""/>
@@ -44,7 +44,7 @@ const MyItem = ({dispatch}) => {
         <div className={style.myItem}>
           <div className={style.itemLf}>
             <img className={style.itemImg} src="/assets/message.png" alt=""/>
-            <a className={style.itemGo}>我的消息</a>
+            <p className={style.itemGo}>我的消息</p>
           </div>
           <img className={style.dtlGo} src="/assets/rgarrow.png" alt=""/>
         </div>

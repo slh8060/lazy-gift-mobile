@@ -6,7 +6,7 @@ import StarList from 'components/Layout/StarList';
 const Star = () => {
   return (
     <div>
-      <Navbar title="我的收藏" />
+      <Navbar title="我的收藏" back="true"/>
       <StarList />
     </div>
   );
