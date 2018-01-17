@@ -32,6 +32,10 @@ function RouterConfig({history, app}) {
       path: '/myinfo',
       component: () => import('./routes/myinfo'),
     },
+    {
+      path: '/detail',
+      component: () => import('./routes/detail'),
+    },
 
   ];
   return (
