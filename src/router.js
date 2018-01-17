@@ -28,6 +28,10 @@ function RouterConfig({history, app}) {
       path: '/message',
       component: () => import('./routes/message'),
     },
+    {
+      path: '/myinfo',
+      component: () => import('./routes/myinfo'),
+    },
 
   ];
   return (
