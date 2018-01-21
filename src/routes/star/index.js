@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import Navbar from 'components/Layout/Navbar';
-import StarList from 'components/Layout/StarList';
+import StarList from 'components/star/StarList';
 
 const Star = () => {
   return (

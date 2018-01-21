@@ -1,8 +1,10 @@
 import React from 'react';
+
 import Navbar from '../Layout/Navbar';
-import RecommandList from '../Layout/RecommandList';
+import RecommandList from './RecommandList';
 
 class Recommand extends React.Component {
+
 
   render() {
     return (
