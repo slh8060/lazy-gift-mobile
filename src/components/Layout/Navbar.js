@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavBar, Icon } from 'antd-mobile';
+import {NavBar, Icon} from 'antd-mobile';
 import style from './Navbar.less';
 
 const Navbar = () => ({
@@ -8,15 +8,19 @@ const Navbar = () => ({
     const linkUrl = isLocalMode ? '' : 'kitchen-sink/';
 
     return (
-      <div className={style.nbCon}>
-        <NavBar
-          mode="light"
-          icon={this.props.back === 'true' ? <Icon style={{ color: '#999' }} type="left" /> : ''}
-          onLeftClick={this.props.back === 'true' ? () => { window.location = `/${linkUrl}${window.location.search}`; } : ''}
-        >
-          {this.props.title}
-        </NavBar>
-
+      <div className={style.page}>
+        <div className={style.nbCon}>
+          <NavBar
+            mode="light"
+            icon={this.props.back === 'true' ? <Icon style={{color: '#999'}} type="left"/> : ''}
+            onLeftClick={this.props.back === 'true' ? () => {
+              window.location = `/${linkUrl}${window.location.search}`;
+            } : ''}
+          >
+            {this.props.title}
+          </NavBar>
+        </div>
+        {this.props.children}
       </div>
     );
   },

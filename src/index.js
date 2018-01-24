@@ -11,7 +11,9 @@ const app = dva({
 // app.use({});
 
 // 3. Model
-app.model(require('./models/mystar'));
+app.model(require('./models/recommand'));
+
+app.model(require('./models/star'));
 
 // 4. Router
 app.router(require('./router'));

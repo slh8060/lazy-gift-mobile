@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'dva';
 import ListItem from './ListItem';
 import style from './List.less';
 
@@ -15,4 +16,8 @@ const StarList = () => ({
   },
 });
 
-export default StarList;
+function mapStateToProps() {
+  return {};
+}
+
+export default connect(mapStateToProps)(StarList);

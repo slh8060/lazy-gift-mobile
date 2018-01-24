@@ -10,7 +10,7 @@ export default {
   },
   effects: {
     * mystar({ payload }, { put }) {
-      yield put(routerRedux.push('/star'));
+      yield put(routerRedux.push('/Star'));
     },
   },
 };

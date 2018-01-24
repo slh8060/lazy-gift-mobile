@@ -5,10 +5,9 @@ import DetailCon from '../../components/Detail/Detail';
 
 const Detail = () => {
   return (
-    <div>
-      <Navbar title="详情" back="true"/>
-      <DetailCon />
-    </div>
+    <Navbar title="详情" back="true">
+      <DetailCon/>
+    </Navbar>
   );
 };
 

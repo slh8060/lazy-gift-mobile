@@ -3,7 +3,7 @@ import { connect } from 'dva';
 
 import MainLayout from './mainlayout';
 
-const Main = ({ dispatch }) => {
+const Main = () => {
   return (
     <div>
       <MainLayout />

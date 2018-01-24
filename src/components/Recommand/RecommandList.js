@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'dva';
 import ListItem from './ListItem';
-import style from './List.less';
+import style from './ListItem.less';
 
 
 const RecommandList = () => ({
@@ -15,4 +16,8 @@ const RecommandList = () => ({
   },
 });
 
-export default RecommandList;
+function mapStateToProps() {
+  return {};
+}
+
+export default connect(mapStateToProps)(RecommandList);

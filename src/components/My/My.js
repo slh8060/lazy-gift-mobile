@@ -5,10 +5,9 @@ import MyItem from './MyItem';
 class My extends React.Component {
   render() {
     return (
-      <div>
-        <Navbar title="我的" />
+      <Navbar title="我的">
         <MyItem />
-      </div>
+      </Navbar>
     );
   }
 }

@@ -1,15 +1,14 @@
 import React from 'react';
-import { connect } from 'dva';
 import Navbar from 'components/Layout/Navbar';
-import StarList from 'components/star/StarList';
+import StarList from 'components/Star/StarList';
 
 const Star = () => {
   return (
-    <div>
-      <Navbar title="我的收藏" back="true"/>
-      <StarList />
-    </div>
+    <Navbar title="我的收藏" back="true">
+      <StarList/>
+    </Navbar>
   );
 };
 
-export default connect()(Star);
+
+export default Star;

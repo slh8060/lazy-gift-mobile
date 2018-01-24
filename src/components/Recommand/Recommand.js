@@ -1,17 +1,15 @@
 import React from 'react';
-
 import Navbar from '../Layout/Navbar';
-import RecommandList from './RecommandList';
+import ListItem from './ListItem';
 
 class Recommand extends React.Component {
 
 
   render() {
     return (
-      <div>
-        <Navbar title="推荐" back="false" />
-        <RecommandList />
-      </div>
+      <Navbar title="推荐" back="false">
+        <ListItem />
+      </Navbar>
     );
   }
 }
