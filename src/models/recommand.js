@@ -1,4 +1,4 @@
-import * as usersService from 'services/recommand';
+import * as recommandService from 'services/recommand';
 
 const queryString = require('query-string');
 
@@ -14,8 +14,13 @@ export default {
   },
   effects: {
     *fetch({ payload: { p } }, { call, put }) {
-      const { data } = yield call(usersService.fetch, { p });
+      const { data } = yield call(recommandService.fetch, { p });
       yield put({ type: 'save', payload: { data } });
+    },
+    *patch({ payload: detailId }, { call, put, select }) {
+      yield call(recommandService.remove, detailId);
+      const page = yield select(state => state.recommand.page);
+      yield put({ type: 'fetch', payload: { page } });
     },
   },
   subscriptions: {
