@@ -1,6 +1,6 @@
 import request from 'utils/request';
 
-export function fetch(detailId) {
+export function detailList(detailId) {
   return request('/api/detail.json', {
     method: 'POST',
     headers: {

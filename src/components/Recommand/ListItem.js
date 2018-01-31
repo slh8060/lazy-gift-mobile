@@ -7,6 +7,7 @@ function ListItem({dispatch, list: dataSource}) {
 
   // 进入详情页
   function goDetail(detailId) {
+
     dispatch({
       type: 'detail/fetch',
       payload: detailId,
@@ -16,7 +17,7 @@ function ListItem({dispatch, list: dataSource}) {
   const recommandList = dataSource.result.map((item) => {
     return (
       <div className={style.lsitemCon} key={item.id}>
-        <Link to="/detail">
+        <Link to="/detail" >
           <div className={style.lstop} onClick={goDetail.bind(null, item.id)}>
             <div className={style.lstopLf}>
               <img className={style.psImg} src="/assets/person.png" alt=""/>
@@ -40,7 +41,7 @@ function ListItem({dispatch, list: dataSource}) {
           }
         </div>
         <div className={style.lsbtm}>
-          <span className={style.time}>2小时前</span>
+          <span className={style.time}>{item.date}</span>
           <div className={style.lsRg}>
             <div className={style.starCon}>
               <img className={style.starImg} src="/assets/star.png" alt=""/>
@@ -65,7 +66,7 @@ function ListItem({dispatch, list: dataSource}) {
 }
 
 function mapStateToProps(state) {
-  const {list} = state.recommand;
+  const { list } = state.recommand;
   console.log('map:',list);
   return {
     list,

@@ -5,18 +5,26 @@ const queryString = require('query-string');
 export default {
   namespace: 'detail',
   state: {
-    detailResult: '',
+    detailList: '',
+    commentList: '',
     detailId: '',
   },
   reducers: {
-    save(state, {payload: {data: detailResult}}) {
-      return {...state, detailResult};
+    save(state, { payload: {detailList, detailId } }) {
+      return { ...state, detailList, detailId };
+    },
+    saveCommentList(state, { payload: { commentList } }) {
+      return { ...state, commentList };
     },
   },
   effects: {
-    * fetch({payload: detailId }, {call, put, select}) {
-      const {data} = yield call(detailService.fetch, detailId);
-      yield put({type: 'save', payload: {data}});
+    * fetch({ payload: detailId }, { call, put }) {
+      const { data: detailList } = yield call(detailService.detailList, detailId);
+      yield put({ type: 'save', payload: { detailList, detailId } });
+    },
+    * commentList({ payload: detailId }, { call, put }) {
+      const { data: commentList } = yield call(detailService.commentList, detailId);
+      yield put({ type: 'saveCommentList', payload: { commentList } });
     },
   },
   subscriptions: {
