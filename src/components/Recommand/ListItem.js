@@ -7,12 +7,12 @@ function ListItem({dispatch, list: dataSource}) {
 
   // 进入详情页
   function goDetail(detailId) {
-
     dispatch({
       type: 'detail/fetch',
       payload: detailId,
     });
   }
+
 
   const recommandList = dataSource.result.map((item) => {
     return (
@@ -67,7 +67,6 @@ function ListItem({dispatch, list: dataSource}) {
 
 function mapStateToProps(state) {
   const { list } = state.recommand;
-  console.log('map:',list);
   return {
     list,
   };
