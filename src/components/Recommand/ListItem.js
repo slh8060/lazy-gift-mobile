@@ -3,7 +3,7 @@ import {connect} from 'dva';
 import {Link} from 'react-router-dom';
 import style from './ListItem.less';
 
-function ListItem({dispatch, list: dataSource}) {
+function ListItem({dispatch, list: dataSource, approveResult}) {
 
   // 进入详情页
   function goDetail(detailId) {
@@ -13,11 +13,30 @@ function ListItem({dispatch, list: dataSource}) {
     });
   }
 
+  // 赞
+  function approve(detailId, isApprove) {
+    console.log('click', detailId);
+    dispatch({
+      type: 'recommand/approve',
+      payload: {
+        detailId: detailId,
+        userId: 5,
+        isApprove: isApprove,
+      },
+    });
+    dispatch({
+      type: 'recommand/fetch',
+      payload: {
+        userId: 5,
+      },
+    });
 
-  const recommandList = dataSource.result.map((item) => {
+  }
+
+  const recommandList = dataSource.result.map((item,index) => {
     return (
       <div className={style.lsitemCon} key={item.id}>
-        <Link to="/detail" >
+        <Link to="/detail">
           <div className={style.lstop} onClick={goDetail.bind(null, item.id)}>
             <div className={style.lstopLf}>
               <img className={style.psImg} src="/assets/person.png" alt=""/>
@@ -44,13 +63,24 @@ function ListItem({dispatch, list: dataSource}) {
           <span className={style.time}>{item.date}</span>
           <div className={style.lsRg}>
             <div className={style.starCon}>
-              <img className={style.starImg} src="/assets/star.png" alt=""/>
-              <span className={style.starNum}>100{item.agree_count}</span>
+              {
+                item.is_approve === 1 ? (
+                  <i className={`iconfont icon-like-o ${style.test}`} onClick={approve.bind(null, item.id, 0)}/>
+                ) : (
+                  <i className={`iconfont icon-like ${style.test}`} onClick={approve.bind(null, item.id, 1)}/>
+                )
+              }
+              <span className={style.starNum}>{item.agree_count}</span>
             </div>
-            <div className={style.starCon}>
-              <img className={style.starImg} src="/assets/unstar.png" alt=""/>
-              <span className={style.starNum}>50{item.unagree_count}</span>
-
+            <div className={style.starCon} onClick={approve.bind(null, item.id, -1)}>
+              {
+                  item.is_approve === -1 ? (
+                    <i className={`iconfont icon-dislike-o ${style.test}`} onClick={approve.bind(null, item.id, 0)} />
+                  ) : (
+                    <i className={`iconfont icon-dislike ${style.test}`} onClick={approve.bind(null, item.id, -1)} />
+                  )
+              }
+              <span className={style.starNum}>{item.unagree_count}</span>
             </div>
           </div>
         </div>
@@ -66,9 +96,11 @@ function ListItem({dispatch, list: dataSource}) {
 }
 
 function mapStateToProps(state) {
-  const { list } = state.recommand;
+  const {list, approveResult} = state.recommand;
+  console.log('map:', state.recommand);
   return {
     list,
+    approveResult,
   };
 }
 

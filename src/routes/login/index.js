@@ -19,8 +19,8 @@ function Login({dispatch, loginResult}) {
     window.location.href = '/main';
   }
   return (
-    <div className={styles.login}>
 
+    <div className={styles.login}>
       <div className={styles.top}>
         <p className={styles.title}>懒人日记</p>
         <p className={styles.remark}>一个专为懒人而生的app</p>

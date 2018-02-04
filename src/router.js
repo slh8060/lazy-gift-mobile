@@ -9,7 +9,7 @@ const {ConnectedRouter} = routerRedux;
 function RouterConfig({history, app}) {
   const routes = [
     {
-      path: '/',
+      path: '/test',
       component: () => import('./routes/IndexPage'),
     },
     {

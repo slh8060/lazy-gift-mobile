@@ -6,21 +6,28 @@ export default {
   namespace: 'recommand',
   state: {
     list: [],
+    approveResult: '',
   },
   reducers: {
     save(state, { payload: { data: list } }) {
       return { ...state, list };
     },
+    saveApproveResult(state, { payload: { approveResult } }) {
+      return { ...state, approveResult };
+    },
   },
   effects: {
-    *fetch({ payload: { p } }, { call, put }) {
-      const { data } = yield call(recommandService.fetch, { p });
+    *fetch({ payload: { userId = 5, start = 1 } }, { call, put }) {
+      const { data } = yield call(recommandService.fetch, { userId, start });
+
       yield put({ type: 'save', payload: { data } });
     },
-    *patch({ payload: detailId }, { call, put, select }) {
-      yield call(recommandService.remove, detailId);
-      const page = yield select(state => state.recommand.page);
-      yield put({ type: 'fetch', payload: { page } });
+    * approve({payload: param}, {call, put}) {
+      const { detailId, userId, isApprove } = param;
+      const { data: approveResult } = yield call(
+        recommandService.approve,
+        { detailId, userId, isApprove });
+      yield put({type: 'saveApproveResult', payload: {approveResult}});
     },
   },
   subscriptions: {

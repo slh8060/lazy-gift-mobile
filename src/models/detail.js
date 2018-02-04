@@ -10,22 +10,23 @@ export default {
     detailId: '',
   },
   reducers: {
-    save(state, { payload: {detailList, detailId } }) {
-      return { ...state, detailList, detailId };
+    save(state, {payload: {detailList, detailId}}) {
+      return {...state, detailList, detailId};
     },
-    saveCommentList(state, { payload: { commentList } }) {
-      return { ...state, commentList };
+    saveCommentList(state, {payload: {commentList}}) {
+      return {...state, commentList};
     },
   },
   effects: {
-    * fetch({ payload: detailId }, { call, put }) {
-      const { data: detailList } = yield call(detailService.detailList, detailId);
-      yield put({ type: 'save', payload: { detailList, detailId } });
+    * fetch({payload: detailId}, {call, put}) {
+      const {data: detailList} = yield call(detailService.detailList, detailId);
+      yield put({type: 'save', payload: {detailList, detailId}});
     },
-    * commentList({ payload: detailId }, { call, put }) {
-      const { data: commentList } = yield call(detailService.commentList, detailId);
-      yield put({ type: 'saveCommentList', payload: { commentList } });
+    * commentList({payload: detailId}, {call, put}) {
+      const {data: commentList} = yield call(detailService.commentList, detailId);
+      yield put({type: 'saveCommentList', payload: {commentList}});
     },
+
   },
   subscriptions: {
     // setup({dispatch, history}) {
