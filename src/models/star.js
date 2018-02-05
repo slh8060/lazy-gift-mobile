@@ -15,7 +15,6 @@ export default {
   effects: {
     * fetch({ payload: { userId = 5 } }, { call, put }) {
       const { data: starList } = yield call(starService.fetch, { userId });
-      console.log('result', starList);
       yield put({ type: 'save', payload: { starList } });
     },
   },
