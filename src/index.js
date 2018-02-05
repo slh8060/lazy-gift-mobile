@@ -13,6 +13,8 @@ const app = dva({
 // 3. Model
 app.model(require('./models/recommand'));
 
+app.model(require("./models/message"));
+
 app.model(require('./models/login'));
 
 app.model(require('./models/detail'));
