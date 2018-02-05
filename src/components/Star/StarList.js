@@ -9,8 +9,6 @@ const StarList = () => ({
     return (
       <div className={style.lsCon}>
         <ListItem label={<span>取消</span>} />
-        <ListItem label={<span>取消</span>} />
-        <ListItem label={<span>取消</span>} />
       </div>
     );
   },

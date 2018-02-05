@@ -3,13 +3,6 @@ import {Link} from 'react-router-dom';
 import style from './My.less';
 
 const MyItem = ({dispatch}) => {
-
-  function handleOk() {
-    alert('222');
-    dispatch({type: 'mystar/mystar'});
-
-  }
-
   return (
     <div className={style.myCon}>
       <Link to="myinfo">
@@ -30,11 +23,10 @@ const MyItem = ({dispatch}) => {
       </Link>
 
       <Link to="/star">
-        <div className={style.myItem} href="/star">
+        <div className={style.myItem}>
           <div className={style.itemLf}>
             <img className={style.itemImg} src="/assets/heart.png" alt=""/>
-            <p className={style.itemGo} href="/star">我的收藏</p>
-
+            <p className={style.itemGo} >我的收藏</p>
           </div>
           <img className={style.dtlGo} src="/assets/rgarrow.png" alt=""/>
         </div>
