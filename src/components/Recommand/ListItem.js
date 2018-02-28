@@ -36,8 +36,9 @@ function ListItem({dispatch, list: dataSource, approveResult}) {
   const recommandList = dataSource.result.map((item,index) => {
     return (
       <div className={style.lsitemCon} key={item.id}>
-        <Link to="/detail">
-          <div className={style.lstop} onClick={goDetail.bind(null, item.id)}>
+        {/*<Link to="/detail">*/}
+        <div onClick={goDetail.bind(null, item.id)}>
+          <div className={style.lstop} >
             <div className={style.lstopLf}>
               <img className={style.psImg} src="/assets/person.png" alt=""/>
               <div className={style.lsDtl}>
@@ -49,16 +50,18 @@ function ListItem({dispatch, list: dataSource, approveResult}) {
               <img className={style.share} src="/assets/share.png" alt=""/>
             </p>
           </div>
-        </Link>
-        <div className={style.lsmdl}>
-          {
-            item.items.map((items) => {
-              return (
-                <span key={items.detail_level}>{items.detail_level}:{items.brief};</span>
-              );
-            })
-          }
+          <div className={style.lsmdl}>
+            {
+              item.items.map((items) => {
+                return (
+                  <span key={items.detail_level}>{items.detail_level}:{items.brief};</span>
+                );
+              })
+            }
+          </div>
         </div>
+        {/*</Link>*/}
+
         <div className={style.lsbtm}>
           <span className={style.time}>{item.date}</span>
           <div className={style.lsRg}>

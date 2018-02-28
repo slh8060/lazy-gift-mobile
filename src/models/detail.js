@@ -1,3 +1,4 @@
+import { routerRedux } from 'dva/router';
 import * as detailService from 'services/detail';
 
 const queryString = require('query-string');
@@ -21,6 +22,7 @@ export default {
     * fetch({payload: detailId}, {call, put}) {
       const {data: detailList} = yield call(detailService.detailList, detailId);
       yield put({type: 'save', payload: {detailList, detailId}});
+      yield put(routerRedux.push('/detail'))
     },
     * commentList({payload: detailId}, {call, put}) {
       const {data: commentList} = yield call(detailService.commentList, detailId);
