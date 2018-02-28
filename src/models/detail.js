@@ -6,8 +6,8 @@ const queryString = require('query-string');
 export default {
   namespace: 'detail',
   state: {
-    detailList: '',
-    commentList: '',
+    detailList: [],
+    commentList: [],
     detailId: '',
   },
   reducers: {
@@ -25,7 +25,9 @@ export default {
       yield put(routerRedux.push('/detail'))
     },
     * commentList({payload: detailId}, {call, put}) {
+      console.log('exect');
       const {data: commentList} = yield call(detailService.commentList, detailId);
+      console.log('1111:', commentList);
       yield put({type: 'saveCommentList', payload: {commentList}});
     },
 

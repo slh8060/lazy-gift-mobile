@@ -19,6 +19,7 @@ class Detail extends React.Component {
     this.setState({
       loadCommentList: true,
     });
+    console.log('componentDidMount');
     this.state.dispatch({
       type: 'detail/commentList',
       payload: this.state.detailId,

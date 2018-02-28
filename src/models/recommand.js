@@ -7,6 +7,7 @@ export default {
   state: {
     list: [],
     approveResult: '',
+    firstLoad: true,
   },
   reducers: {
     save(state, { payload: { data: list } }) {
@@ -18,8 +19,8 @@ export default {
   },
   effects: {
     *fetch({ payload: { userId = 5, start = 1 } }, { call, put }) {
+      console.log('payload', userId, start);
       const { data } = yield call(recommandService.fetch, { userId, start });
-
       yield put({ type: 'save', payload: { data } });
     },
     * approve({payload: param}, {call, put}) {

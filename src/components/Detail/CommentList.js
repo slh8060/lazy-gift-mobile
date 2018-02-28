@@ -3,6 +3,7 @@ import {connect} from 'dva';
 import style from './Detail.less';
 
 function CommentList({commentList}) {
+  console.log('out', commentList);
   let commentlistCom = null;
   if (commentList.length > 0) {
     commentlistCom = commentList.map((item) => {
@@ -40,7 +41,7 @@ function CommentList({commentList}) {
       );
     });
   } else {
-    commentlistCom = <p>暂时任何没有评论</p>;
+    commentlistCom = <p className={style.noComment}>暂时任何没有评论</p>;
   }
   return (
     <div className={style.detailBtm}>
@@ -49,8 +50,10 @@ function CommentList({commentList}) {
   );
 }
 
-function mapStatetoProps(state) {
-  const {commentList} = state.detail;
+function mapStatetoProps({ detail }) {
+  const { commentList } = detail;
+  console.log('commentList:', commentList);
+
   return {
     commentList,
   };

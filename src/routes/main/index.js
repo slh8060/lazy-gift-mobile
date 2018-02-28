@@ -11,5 +11,4 @@ const Main = () => {
   );
 };
 
-
 export default connect()(Main);

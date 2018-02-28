@@ -3,7 +3,7 @@ import {connect} from 'dva';
 import {Link} from 'react-router-dom';
 import styles from './index.less';
 
-function Login({dispatch, loginResult}) {
+function Login({ dispatch, loginResult }) {
   function login() {
     dispatch({
       type: 'login/login',
@@ -18,6 +18,7 @@ function Login({dispatch, loginResult}) {
     alert('登录成功！');
     window.location.href = '/main';
   }
+
   return (
 
     <div className={styles.login}>
