@@ -14,31 +14,24 @@ function ListItem({dispatch, list: dataSource, approveResult}) {
   }
 
   // 赞
-  function approve(detailId, isApprove) {
-    console.log('click', detailId);
+  function approve(detailId, isApprove, index) {
+    console.log('index', index);
     dispatch({
       type: 'recommand/approve',
       payload: {
         detailId: detailId,
         userId: 5,
         isApprove: isApprove,
+        index: index,
       },
     });
-    dispatch({
-      type: 'recommand/fetch',
-      payload: {
-        userId: 5,
-      },
-    });
-
   }
 
-  const recommandList = dataSource.result.map((item,index) => {
+  const recommandList = dataSource.result.map((item, index) => {
     return (
       <div className={style.lsitemCon} key={item.id}>
-        {/*<Link to="/detail">*/}
         <div onClick={goDetail.bind(null, item.id)}>
-          <div className={style.lstop} >
+          <div className={style.lstop}>
             <div className={style.lstopLf}>
               <img className={style.psImg} src="/assets/person.png" alt=""/>
               <div className={style.lsDtl}>
@@ -60,7 +53,6 @@ function ListItem({dispatch, list: dataSource, approveResult}) {
             }
           </div>
         </div>
-        {/*</Link>*/}
 
         <div className={style.lsbtm}>
           <span className={style.time}>{item.date}</span>
@@ -68,20 +60,20 @@ function ListItem({dispatch, list: dataSource, approveResult}) {
             <div className={style.starCon}>
               {
                 item.is_approve === 1 ? (
-                  <i className={`iconfont icon-like-o ${style.test}`} onClick={approve.bind(null, item.id, 0)}/>
+                  <i className={`iconfont icon-like-o ${style.test}`} onClick={approve.bind(null, item.id, 0, index)}/>
                 ) : (
-                  <i className={`iconfont icon-like ${style.test}`} onClick={approve.bind(null, item.id, 1)}/>
+                  <i className={`iconfont icon-like ${style.test}`} onClick={approve.bind(null, item.id, 1, index)}/>
                 )
               }
               <span className={style.starNum}>{item.agree_count}</span>
             </div>
-            <div className={style.starCon} onClick={approve.bind(null, item.id, -1)}>
+            <div className={style.starCon}>
               {
-                  item.is_approve === -1 ? (
-                    <i className={`iconfont icon-dislike-o ${style.test}`} onClick={approve.bind(null, item.id, 0)} />
-                  ) : (
-                    <i className={`iconfont icon-dislike ${style.test}`} onClick={approve.bind(null, item.id, -1)} />
-                  )
+                item.is_approve === -1 ? (
+                  <i className={`iconfont icon-dislike-o ${style.test}`} onClick={approve.bind(null, item.id, 0, index)}/>
+                ) : (
+                  <i className={`iconfont icon-dislike ${style.test}`} onClick={approve.bind(null, item.id, -1, index)}/>
+                )
               }
               <span className={style.starNum}>{item.unagree_count}</span>
             </div>

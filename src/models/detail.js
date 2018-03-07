@@ -1,7 +1,6 @@
 import { routerRedux } from 'dva/router';
 import * as detailService from 'services/detail';
 
-const queryString = require('query-string');
 
 export default {
   namespace: 'detail',
@@ -22,26 +21,14 @@ export default {
     * fetch({payload: detailId}, {call, put}) {
       const {data: detailList} = yield call(detailService.detailList, detailId);
       yield put({type: 'save', payload: {detailList, detailId}});
-      yield put(routerRedux.push('/detail'))
+      yield put(routerRedux.push('/detail'));
     },
     * commentList({payload: detailId}, {call, put}) {
-      console.log('exect');
       const {data: commentList} = yield call(detailService.commentList, detailId);
-      console.log('1111:', commentList);
       yield put({type: 'saveCommentList', payload: {commentList}});
     },
 
   },
   subscriptions: {
-    // setup({dispatch, history}) {
-    //   return history.listen(({pathname, search}) => {
-    //     if (pathname === '/detail') {
-    //       dispatch({
-    //         type: 'fetch',
-    //         payload: queryString.parse(search),
-    //       });
-    //     }
-    //   });
-    // },
   },
 };

@@ -5,7 +5,6 @@ export function detailList(detailId) {
 }
 
 export function commentList(detailId) {
-  console.log('222', detailId);
   return request('/api/commentList.json', `detailId=${detailId}`);
 }
 

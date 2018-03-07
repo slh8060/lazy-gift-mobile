@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'dva';
-import {Link} from 'react-router-dom';
 import styles from './index.less';
 
 function Login({ dispatch, loginResult }) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'dva';
+import { connect } from 'dva';
 import DetailList from './DetailList';
 import CommentList from './CommentList';
 import style from './Detail.less';
@@ -19,7 +19,6 @@ class Detail extends React.Component {
     this.setState({
       loadCommentList: true,
     });
-    console.log('componentDidMount');
     this.state.dispatch({
       type: 'detail/commentList',
       payload: this.state.detailId,
@@ -44,16 +43,6 @@ class Detail extends React.Component {
   }
 }
 
-// function Detail({ dispatch, detailList }) {
-//   const detailListResult = detailList.result;
-//   return (
-//     <div className={style.mymsgCon}>
-//       <div className={style.lsitemCon}>
-//         <DetailList detailList={detailListResult} dispatch={dispatch} />
-//       </div>
-//     </div>
-//   );
-// }
 
 function mapStatetoProps(state) {
   const { detailList, detailId } = state.detail;

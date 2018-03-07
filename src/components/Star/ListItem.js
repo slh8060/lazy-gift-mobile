@@ -59,7 +59,6 @@ class ListItem extends React.Component {
 }
 function mapStateToProps(state){
   const { starList } = state.star;
-  console.log('111', starList);
   return {
     starList,
   };

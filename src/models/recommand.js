@@ -16,19 +16,24 @@ export default {
     saveApproveResult(state, { payload: { approveResult } }) {
       return { ...state, approveResult };
     },
+    updateListItem() {
+
+    },
   },
   effects: {
     *fetch({ payload: { userId = 5, start = 1 } }, { call, put }) {
-      console.log('payload', userId, start);
       const { data } = yield call(recommandService.fetch, { userId, start });
+      console.log('data', data);
       yield put({ type: 'save', payload: { data } });
     },
     * approve({payload: param}, {call, put}) {
-      const { detailId, userId, isApprove } = param;
+      const { detailId, userId, isApprove, index } = param;
       const { data: approveResult } = yield call(
         recommandService.approve,
         { detailId, userId, isApprove });
+      console.log('approveResult', approveResult);
       yield put({type: 'saveApproveResult', payload: {approveResult}});
+      yield put({type: 'updateListItem', payload: {} });
     },
   },
   subscriptions: {
