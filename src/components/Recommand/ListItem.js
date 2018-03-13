@@ -15,7 +15,6 @@ function ListItem({dispatch, list: dataSource, approveResult}) {
 
   // 赞
   function approve(detailId, isApprove, index) {
-    console.log('index', index);
     dispatch({
       type: 'recommand/approve',
       payload: {
@@ -92,7 +91,6 @@ function ListItem({dispatch, list: dataSource, approveResult}) {
 
 function mapStateToProps(state) {
   const {list, approveResult} = state.recommand;
-  console.log('map:', state.recommand);
   return {
     list,
     approveResult,
